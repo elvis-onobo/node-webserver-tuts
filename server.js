@@ -19,4 +19,14 @@ app.get('/', (req,res)=>{
     })
 });
 
+app.get('/about', (req,res)=>{
+    res.send('About me')
+})
+
+app.get('/bad', (req,res)=>{
+    res.send({
+        error:'you failed to do something'
+    })
+})
+
 app.listen(3000)
