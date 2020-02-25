@@ -3,6 +3,9 @@ const express = require('express');
 
 var app = express();
 
+// serve static file
+app.use(express.static(__dirname+'/public'))
+
 // setup your route
 app.get('/', (req,res)=>{
     //sending html
