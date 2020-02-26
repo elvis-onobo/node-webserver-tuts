@@ -5,10 +5,10 @@
 </head>
 <body>
 
-<h1>This is the {{ pageTitle }}</h1>
+{{> header }}
 
-<footer>
-    Copyright, {{ currentYear }}
-</footer>
+{{ screamIt pageTitle}}
+
+{{> footer }}
 </body>
 </html>
