@@ -1,8 +1,9 @@
 // import express
 const express = require('express');
-
+const hbs = require('hbs');
 var app = express();
 
+app.set('view engine', 'hbs');
 // serve static file
 app.use(express.static(__dirname+'/public'))
 
@@ -12,18 +13,22 @@ app.get('/', (req,res)=>{
     // res.send('<h1>Hello Elvis</h1>');
 
 // sending JSON
-    res.send({
+    res.render('home.hbs',{
         name:'Elvis',
         likes: [
             'food',
             'money',
             'girls'
-        ]
+        ],
+        pageTitle: 'Homepage'
     })
 });
 
 app.get('/about', (req,res)=>{
-    res.send('About me')
+    res.render('about.hbs', {
+        pageTitle: 'About Page',
+        currentYear: new Date().getFullYear()
+    })
 })
 
 app.get('/bad', (req,res)=>{
